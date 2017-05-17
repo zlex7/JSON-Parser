@@ -381,6 +381,8 @@ public class JSONParser {
 	      //  System.out.println("index: " + index);
 	      }
 	  
+	  index++;
+	  
 	  return objects.toArray();
 	  
   }
