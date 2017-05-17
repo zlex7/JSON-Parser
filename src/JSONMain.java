@@ -19,6 +19,7 @@ public class JSONMain {
 			
 			final String next=scan.next();
 			System.out.println(next);
+			System.out.println("-----");
 			
 			jsons.put(next, new TestJSON() {
 				
