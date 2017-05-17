@@ -1,0 +1,7 @@
+
+
+interface JSONRunner {
+
+	JSONParser getParser();
+
+}
