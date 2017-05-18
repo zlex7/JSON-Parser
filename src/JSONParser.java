@@ -79,6 +79,13 @@ public class JSONParser {
 	    	skipWhiteSpace();
 
 	    	String key = getString();
+	    	
+	    	System.out.println("KEY VALUE: " + key);
+	    		    		
+	    	if(data.hasKey(key)){
+				throw new JSONFormatException("duplicate key at index " + index);
+			}
+	    	
 	    //	System.out.println("key: " + key);
 
 	    	skipWhiteSpace();
@@ -152,12 +159,10 @@ public class JSONParser {
 	        	index++;
 	        //	System.out.println(input.substring(index));
 	        	numEntries++;
-					if(data.hasKey(key)){
-						throw new JSONFormatException("duplicate key at index " + index);
-					}
-					else{
-						data.setObj(key, parseRecursive());
-					}
+				
+				data.setObj(key, parseRecursive());
+				
+
 	        }
 	        
 

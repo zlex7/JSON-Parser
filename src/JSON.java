@@ -19,7 +19,7 @@ public class JSON {
 
 	public JSON setObj(String key, JSON value) {
 
-		objects.put("key", value);
+		objects.put(key, value);
 
 		return this;
 	}
@@ -124,9 +124,17 @@ public class JSON {
 			formatted+="\t";
 		}
 		
+		
+		System.out.println("KEYSET: " + objects.keySet());
+		
 		for(Map.Entry<String, Object> o : objects.entrySet()){
 			
-			formatted += o.getKey() + " : ";
+			//System.out.println("ENTRY: " + o.toString());
+			
+			
+			//System.out.println("KEY VALUE:  " + o.getKey());
+			
+			formatted += "\"" + o.getKey() + "\" : ";
 			
 			Object value = o.getValue();
 			
@@ -142,13 +150,23 @@ public class JSON {
 				
 			}
 			
+			else if(value instanceof String){
+				
+				formatted+= "\"" + value + "\"";
+				
+			}
+			
 			else{
 				
 				formatted += value;
 				
 			}
 			
-			formatted += ",\n\t";
+			formatted += ",\n";
+			
+			for(int i=0;i<recursivity;i++){
+				formatted+="\t";
+			}
 			
 			
 		}
@@ -162,7 +180,7 @@ public class JSON {
 		
 		//return "[ objects: " + objects.toString() + " ]";
 		
-		return stringify(0);
+		return stringify(1);
 		
 		
 	}

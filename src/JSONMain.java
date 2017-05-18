@@ -10,7 +10,7 @@ public class JSONMain {
 		
 		Map<String,TestJSON> jsons = new HashMap<>();
 		
-		File input = new File("input.txt");
+		File input = new File("../input.txt");
 		Scanner scan = new Scanner(input);
 		scan.useDelimiter("-----");
 		//scan.useDelimiter("(?<={\\s*)-----(?=\\s*})");
