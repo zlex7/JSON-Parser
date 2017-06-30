@@ -20,7 +20,7 @@ public class JSONParser {
     	//  System.out.println("input: " + input);
     	//System.out.println(input.length());
     
-    index=1;
+    index=0;
     
     /*
     MyJSON data = new MyJSON();
@@ -34,12 +34,51 @@ public class JSONParser {
     */
 		skipWhiteSpace();
 		
-		if(input.charAt(0)!='{'){			
+		char firstChar = input.charAt(index);
+
+		JSON data;
+
+		if(firstChar=='{'){
+
+			data=parseRecursive();
+			
+		}
+		else if(firstChar=='['){
+
+			data = new JSON();
+			data.setArray("Outer Object",getArray());
+
+		}
+
+		else{
+
 			throw new JSONFormatException("extra characters at beginning of input");
+		
 		}
 		
-			
-    	JSON data = parseRecursive();
+		/*
+		else if(firstChar=='['){
+
+			index++;
+
+			skipWhiteSpace();
+
+			firstChar=input.charAt(index);
+
+			while(firstChar=='['){
+
+				index++;
+				skipWhiteSpace();
+				firstChar=input.charAt(index);
+
+			}
+
+			if(firstChar=='{'){
+
+
+			}
+		}
+		*/
     	
 			if(index<input.length()){
 				
