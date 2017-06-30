@@ -3,16 +3,28 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
+import java.io.FileWriter;
 
 public class JSONMain {
 
 	public static void main(String[] args) throws IOException {
 		
+		String filePath;
+
+		if(args.length>0){
+			filePath = args[0];
+		}
+
+		else{
+			System.out.println("setting file name to default (input.txt).\n\n");
+			filePath = "../input.txt";
+		}
+
 		Map<String,TestJSON> jsons = new HashMap<>();
 		
-		File input = new File("../input.txt");
+		File input = new File(filePath);
 		Scanner scan = new Scanner(input);
-		scan.useDelimiter("-----");
+		scan.useDelimiter("###---###---###---###---");
 		//scan.useDelimiter("(?<={\\s*)-----(?=\\s*})");
 		
 		while(scan.hasNext()){
@@ -23,18 +35,23 @@ public class JSONMain {
 			
 			jsons.put(next, new TestJSON() {
 				
-				public void run(JSONRunner runner) throws IOException {
+				public void run(JSONRunner runner,int count) throws IOException {
 					
 					JSON json = runner.getParser().parseInput(next);
 					
-					System.out.println(json);
-					
+					FileWriter output = new FileWriter("output"+count+".json");
+
+					output.write(json.toString());
+
+					output.close();
+						
 				}
 				
 			});
 			
 		}
 		
+		int count =1;
 		for(TestJSON test : jsons.values()){
 			test.run(new JSONRunner() {
 				
@@ -43,7 +60,9 @@ public class JSONMain {
 					return new JSONParser();
 					
 				}
-			});
+			}   , count );
+
+			count++;
 		}
 		
 	}

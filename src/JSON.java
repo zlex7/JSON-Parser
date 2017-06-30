@@ -118,6 +118,10 @@ public class JSON {
 	
 	public String stringify(int recursivity){
 		
+		//if(recursivity==0){
+		//	recurisvity=1;
+		//}
+
 		String formatted = "{\n";
 		
 		for(int i=0;i<recursivity;i++){
