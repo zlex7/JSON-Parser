@@ -41,7 +41,9 @@ public class JSONMain {
 					
 					FileWriter output = new FileWriter("output"+count+".json");
 
-					output.write(json.toString());
+					String toString = json.toString();
+
+					output.write(toString);
 
 					output.close();
 						

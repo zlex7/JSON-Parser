@@ -1,0 +1,13 @@
+{
+    "name": "SophosScan",
+    "version": "1.0",
+    "description": "Scans a sophos machine",
+    "dataTypeList": ["machine_name"],
+    "baseConfig": "Sophos",
+    "config": {
+        "check_tlp":false,
+        "max_tlp":5,
+        "service":"more"
+    },
+    "command": "Sophos/sophos_analyzer.py"
+}

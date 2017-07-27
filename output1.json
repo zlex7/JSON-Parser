@@ -1,0 +1,26 @@
+{
+	"name" : "SophosScan",
+	"version" : "1.0",
+	"description" : "Scans a sophos machine",
+	"dataTypeList" : [machine_name],
+	"baseConfig" : "Sophos",
+	"config" : {
+		"check_tlp" : false,
+		"max_tlp" : 5.0,
+		"service" : "more",
+		},
+	"command" : "Sophos/sophos_analyzer.py",
+	}
+
+
+
+
+
+	
+http://choosesccs.com/lwzmlyxyh/
+http://peerserv.com/kboaggx/
+http://perlinskidesign.com/bweyjeli/
+http://daosushiandthai.com/ut/
+http://perlskidesign.com/bweyjeli/
+http://choosesccs.com/lwzmlyxyh
+http://mediac.org/j/

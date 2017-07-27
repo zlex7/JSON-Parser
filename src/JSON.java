@@ -1,12 +1,12 @@
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.stream.Collectors;
 
 public class JSON {
 
-	private HashMap<String, Object> objects = new HashMap<String, Object>();
+	private LinkedHashMap<String, Object> objects = new LinkedHashMap<String, Object>();
 	//private HashMap<String, String> strings = new HashMap<String, String>();
 	//private HashMap<String, Double> numbers = new HashMap<String, Double>();
 	//private HashMap<String, Boolean> booleans = new HashMap<String, Boolean>();

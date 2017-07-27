@@ -40,6 +40,7 @@ public class JSONParser {
 
 		if(firstChar=='{'){
 
+			index++;
 			data=parseRecursive();
 			
 		}
